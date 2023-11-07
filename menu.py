@@ -2,18 +2,18 @@ import tkinter as tk
 from game import GameWindow
     #height,width,bombs
 Modes = {
-    'easy': (10,10,10),
+    'easy': (11,9,15),
     'medium': (16,16,40),
-    'hard': (16,30,99)
+    'hard': (16,30,80)
 }
 
 class MainMenu:
     def __init__(self):
         self.window = tk.Tk()
-        self.menu_frame = tk.Frame(self.window)
+        self.menu_frame = tk.Frame(self.window, width=150, height=100)
         self.menu_frame.pack()
-        #self.window.geometry('250x350')
-        self.window.title('Minesweeper')
+        self.window.resizable(0,0)
+        self.window.title('TkSweeper')
         self.create_buttons()
 
 
