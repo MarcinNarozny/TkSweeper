@@ -1,31 +1,23 @@
 import tkinter as tk
 from game import GameWindow
-    #height,width,bombs
-Modes = {
-    'easy': (11,9,15),
+
+modes = {
+    'easy': (9,9,10),
     'medium': (16,16,40),
-    'hard': (16,30,80)
+    'hard': (16,30,99)
 }
 
-class MainMenu:
-    def __init__(self):
-        self.window = tk.Tk()
-        self.menu_frame = tk.Frame(self.window, width=150, height=100)
-        self.menu_frame.pack()
-        self.window.resizable(0,0)
-        self.window.title('TkSweeper')
-        self.create_buttons()
 
+class Menu(tk.Frame):
+    def __init__(self, master):
+        self.master = master
+        super().__init__(master, height=100, width=150)     
+        for mode in modes.keys():
+            tk.Button(self, text=mode, width=10,
+                      command = lambda m=modes[mode]: self.display_minefield(m)).pack()
 
-    def set_mode(self, setup):
-        self.menu_frame.pack_forget()
-        self.gamewindow=GameWindow(self.window, setup)
-
-
-    def create_buttons(self):
-        easy_mode = tk.Button(self.menu_frame, text='easy', width=10, command = lambda : self.set_mode(Modes['easy']))
-        easy_mode.pack()
-        medium_mode = tk.Button(self.menu_frame, text='medium', width=10, command = lambda : self.set_mode(Modes['medium']))
-        medium_mode.pack()
-        hard_mode = tk.Button(self.menu_frame, text='hard', width=10, command = lambda : self.set_mode(Modes['hard']))
-        hard_mode.pack()
+    def display_minefield(self, mode):
+        rows = mode[0]
+        columns = mode[1]
+        bombs = mode[2]
+        GameWindow(self.master, rows, columns, bombs).grid(row=0, column=0, sticky="nsew")
