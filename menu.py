@@ -11,10 +11,10 @@ modes = {
 class Menu(tk.Frame):
     def __init__(self, master):
         self.master = master
-        super().__init__(master, height=100, width=150)     
+        super().__init__(master, height=300, width=200)     
         for mode in modes.keys():
             tk.Button(self, text=mode, width=10,
-                      command = lambda m=modes[mode]: self.display_minefield(m)).pack()
+                      command = lambda m=modes[mode]: self.display_minefield(m)).pack(pady= 30, padx=20)
 
     def display_minefield(self, mode):
         rows = mode[0]

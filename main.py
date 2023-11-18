@@ -9,7 +9,7 @@ def main():
     window_container.pack()
     window.title('TkSweeper')
     menu = Menu(window_container)
-    menu.grid(row=0, column=0, sticky="nsew")
+    menu.grid(row=0, column=0, sticky="nsew",)
     window.mainloop()
 
 if __name__ == "__main__":
