@@ -11,5 +11,5 @@ Ubuntu 22.04
 ```bash
 git clone https://github.com/MarcinNarozny/TkSweeper.git
 cd TkSweeper
-python3 main.py
+python3 -m app
 ```
