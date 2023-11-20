@@ -16,6 +16,7 @@ class GameWindow(tk.Frame):
     def set_button_image(self, name):
         self.controls.reset_button.configure(image=self.controls.icons[name])
 
+
 class Controls(tk.Frame):
     def __init__(self, master, minefield):
         super().__init__(master)
@@ -25,11 +26,12 @@ class Controls(tk.Frame):
 
     def load_icons(self):
         self.icons = {}
-        icons_folder = 'sun/'
+        icons_folder = 'app/sun/'
         icon_names = [icon for icon in os.listdir(icons_folder)]
         for icon_name in icon_names:
             img = tk.PhotoImage(file=os.path.join(icons_folder,icon_name))
             self.icons[icon_name.split('.')[0]] = img
+
 
 class Minefield(tk.Frame):
     def __init__(self, master, rows, columns, bombs):
@@ -51,7 +53,7 @@ class Minefield(tk.Frame):
         
     def load_icons(self):
         self.icons = {}
-        icons_folder = 'icons/'
+        icons_folder = 'app/icons/'
         icon_names = [icon for icon in os.listdir(icons_folder)]
         for icon_name in icon_names:
             img = tk.PhotoImage(file=os.path.join(icons_folder,icon_name))

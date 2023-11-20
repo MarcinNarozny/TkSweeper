@@ -1,5 +1,5 @@
 import tkinter as tk
-from game import GameWindow
+from .game import GameWindow
 
 modes = {
     'easy': (9,9,10),
